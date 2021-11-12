@@ -3,10 +3,14 @@
   <button id="whatsapp">W</button>
   <script>
     const wButton = document.querySelector('#whatsapp');
-    wButton.addEventListener('click',e=>{
-      //alert('https://wa.me/33622636245')
-      console.log(window)
-    });
+    const params = new URLSearchParams(window.location.search)
+    if(params.has('w')){
+      const w = params.get('w')
+      wButton.addEventListener('click',e=>{
+        //alert('https://wa.me/33622636245')
+        console.log(w)
+      });
+    }
   </script>
 </body>
 </html>
