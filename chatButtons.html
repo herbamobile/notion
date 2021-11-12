@@ -1,16 +1,19 @@
 <html>
+
 <body>
-  <button id="whatsapp">W</button>
-  <script>
-    const wButton = document.querySelector('#whatsapp');
-    const params = new URLSearchParams(window.location.search)
-    if(params.has('w')){
-      const w = params.get('w')
-      wButton.addEventListener('click',e=>{
-        //alert('https://wa.me/33622636245')
-        console.log(w)
-      });
-    }
-  </script>
+    <script>
+        const params = new URLSearchParams(window.location.search)
+        params.forEach((value, key) => {
+            const button = document.createElement('button');
+            button.innerText(key);
+
+            button.addEventListener('click', e => {
+                //alert('https://wa.me/33622636245')
+                console.log(value)
+            });
+            document.appendChild(button)
+        });
+    </script>
 </body>
+
 </html>
