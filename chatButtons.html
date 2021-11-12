@@ -4,15 +4,16 @@
     <script>
         const params = new URLSearchParams(window.location.search)
         params.forEach((value, key) => {
-            const button = document.createElement('button');
-            button.innerText(key);
+            console.log('params:', { value, key })
+            const button = document.createElement('button')
+            button.innerText(key)
 
             button.addEventListener('click', e => {
                 //alert('https://wa.me/33622636245')
                 console.log(value)
-            });
+            })
             document.appendChild(button)
-        });
+        })
     </script>
 </body>
 
