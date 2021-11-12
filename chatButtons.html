@@ -1,19 +1,46 @@
 <html>
 
 <body>
+    <style>
+        button {
+            width: 3em;
+            height: 3em;
+            border-radius: 100%;
+            margin: .3em;
+            cursor: pointer;
+            background-size: contain;
+        }
+
+        .t {
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg);
+        }
+
+        .w {
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg);
+        }
+    </style>
     <script>
         const params = new URLSearchParams(window.location.search)
-        params.forEach((value, key) => {
+        const links = {
+            w: value => 'https://wa.me/' + value,
+            t: value => 'https://t.me/' + value,
+            s: value => 'https://signal.me/#p/+' + value,
+            m: value => 'https://www.messenger.com/t/' + value,
+        }
+
+        createButton = (value, key) => {
             console.log('params:', { value, key })
             const button = document.createElement('button')
-            button.innerText = key
+            // button.innerText = key
 
             button.addEventListener('click', e => {
-                //alert('https://wa.me/33622636245')
-                console.log(value)
+                window.open(links[key](value))
+                // console.log(value)
             })
-            document.appendChild(button)
-        })
+            button.classList.add(key)
+            document.body.appendChild(button)
+        }
+        params.forEach(createButton)
     </script>
 </body>
 
