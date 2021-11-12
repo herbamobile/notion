@@ -6,7 +6,7 @@
         params.forEach((value, key) => {
             console.log('params:', { value, key })
             const button = document.createElement('button')
-            button.innerText(key)
+            button.innerText = key
 
             button.addEventListener('click', e => {
                 //alert('https://wa.me/33622636245')
